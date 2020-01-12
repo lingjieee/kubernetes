@@ -1,0 +1,25 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: lingjie@jieee.xyz
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    solvers:
+    - selector: 
+        dnsNames:
+        - '*.jieee.tech'
+      dns01:
+        webhook:
+          config:
+            accessKeyId: LTAI4FpQofMiC2ccF5ozAZSX
+            accessKeySecretRef:
+              key: accessKeySecret
+              name: alidns-credentials
+            regionId: "cn-shenzhen"
+            ttl: 600
+          groupName: certmanager.webhook.alidns
+          solverName: alidns
