@@ -15,7 +15,7 @@ spec:
       dns01:
         webhook:
           config:
-            accessKeyId: LTAI4FpQofMiC2ccF5ozAZSX
+            accessKeyId: ******
             accessKeySecretRef:
               key: accessKeySecret
               name: alidns-credentials
